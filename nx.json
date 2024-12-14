@@ -70,5 +70,23 @@
         "linter": "eslint"
       }
     }
+  },
+  "release": {
+    "projectsRelationship": "independent",
+    "projects": ["apps/*"],
+    "releaseTagPattern": "{projectName}@{version}",
+    "changelog": {
+      "automaticFromRef": true,
+      "projectChangelogs": {
+        "createRelease": "github"
+      }
+    },
+    "version": {
+      "conventionalCommits": true,
+      "generatorOptions": {
+        "fallbackCurrentVersionResolver": "disk",
+        "updateDependents": "auto"
+      }
+    }
   }
 }
