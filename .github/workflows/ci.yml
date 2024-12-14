@@ -40,7 +40,6 @@ jobs:
           git config user.name ${{ github.actor }}@noreply.github.com
           git config user.email ${{ github.actor }}@noreply.github.com
           git checkout -b ${{ env.RELEASE_BRANCH }}
-          git restore .npmrc
           git commit -a -m "chore(main): release" --allow-empty
           git push origin ${{ env.RELEASE_BRANCH }} --force
           pr_number=$(gh pr list --head ${{ env.RELEASE_BRANCH }} --state open --json number --jq '.[0].number')
@@ -48,7 +47,7 @@ jobs:
             gh pr create --title "chore(main): release" \
                          --body "${{ env.output }}" \
                          --reviewer ${{ github.actor }} \
-                         --base master
+                         --base main
           else
             gh pr edit $pr_number --body "${{ env.output }}"
           fi
