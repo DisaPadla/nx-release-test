@@ -1,3 +1,13 @@
+## 0.6.0 (2024-12-14)
+
+### 🚀 Features
+
+- update shop ([a4cc218](https://github.com/DisaPadla/nx-release-test/commit/a4cc218))
+
+### ❤️ Thank You
+
+- DisaPadla
+
 ## 0.5.0 (2024-12-14)
 
 ### 🚀 Features
