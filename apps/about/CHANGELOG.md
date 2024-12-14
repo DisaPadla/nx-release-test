@@ -1,3 +1,13 @@
+## 0.4.0 (2024-12-14)
+
+### 🚀 Features
+
+- update about app ([ef1ab65](https://github.com/DisaPadla/nx-release-test/commit/ef1ab65))
+
+### ❤️ Thank You
+
+- DisaPadla
+
 ## 0.3.0 (2024-12-14)
 
 ### 🚀 Features
