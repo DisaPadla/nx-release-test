@@ -1,3 +1,13 @@
+## 0.5.0 (2024-12-14)
+
+### 🚀 Features
+
+- update shop about ([6ff1170](https://github.com/DisaPadla/nx-release-test/commit/6ff1170))
+
+### ❤️ Thank You
+
+- DisaPadla
+
 ## 0.4.0 (2024-12-14)
 
 ### 🚀 Features
