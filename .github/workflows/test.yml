@@ -30,6 +30,18 @@ jobs:
       - name: Echo test 2
         run: echo "test 2"
 
+
+  check:
+    runs-on: ubuntu-latest
+    needs: 
+      - prepare
+      - test-1
+    if: always() && needs.prepare.result == 'success' && (needs.*.result == 'skipped' || needs.*.result == 'success')
+    steps:
+      - name: Echo check
+        run: |
+         echo ${{ needs.test-1.result }}
+
   result:
     runs-on: ubuntu-latest
     needs: 
