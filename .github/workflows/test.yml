@@ -50,4 +50,13 @@ jobs:
     if: always() && !failure() && !cancelled()
     steps:
       - name: Echo summary
-        run: echo "summary"
+        run: |
+          echo "### We're ready! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "You can find release v-env [here](https://www.somesite.com)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
+          echo "REMOTE_APP__DOCUFLOW_HISTORY: [https://www.somesite.com](https://www.somesite.com)" >> $GITHUB_STEP_SUMMARY
+          echo "REMOTE_APP__DOCUFLOW_HISTORY: [https://www.somesite.com](https://www.somesite.com)" >> $GITHUB_STEP_SUMMARY
+          echo "REMOTE_APP__DOCUFLOW_HISTORY: [https://www.somesite.com](https://www.somesite.com)" >> $GITHUB_STEP_SUMMARY
+          echo "REMOTE_APP__DOCUFLOW_HISTORY: [https://www.somesite.com](https://www.somesite.com)" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
