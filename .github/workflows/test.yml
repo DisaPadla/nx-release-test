@@ -36,7 +36,6 @@ jobs:
     needs: 
       - prepare
       - test-1
-    if: always() && needs.prepare.result == 'success' && (needs.*.result == 'skipped' || needs.*.result == 'success')
     steps:
       - name: Echo check
         run: |
