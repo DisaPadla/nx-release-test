@@ -35,7 +35,7 @@ jobs:
     needs: 
       - test-1
       - test-2
-    if: always() && !failure() && !cancelled()
+    if: false
     steps:
       - name: Echo result
         run: echo "result"
