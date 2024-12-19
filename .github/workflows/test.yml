@@ -54,7 +54,7 @@ jobs:
       - test-1
       - test-2
       - result
-    if: always() && !failure() && !cancelled()
+    if: always() && !failure() && !cancelled() && needs.prepare.result == 'success'
     steps:
       - name: Echo summary
         run: |
