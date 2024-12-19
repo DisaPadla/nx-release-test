@@ -1,4 +1,4 @@
-name: '[X] Release-please'
+name: 'Check'
 on:
   push:
     branches:
