@@ -32,7 +32,9 @@ jobs:
 
   result:
     runs-on: ubuntu-latest
-    needs: [test-1, test-2]
+    needs: 
+      - test-1
+      - test-2
     if: always() && needs.prepare.result == 'success' && (needs.*.result == 'skipped' || needs.*.result == 'success')
     steps:
       - name: Echo result
