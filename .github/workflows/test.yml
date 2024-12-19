@@ -4,6 +4,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      release_branch:
+        description: 'The branch to release from'
+        required: true
+        default: 'nx-release-please'
 
 env:
   RELEASE_BRANCH: nx-release-please
@@ -11,6 +16,7 @@ env:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    if: contains(inputs.release_branch, 'nx-release-please')
     steps:
       - name: Echo test 1
         run: echo "prepare"
@@ -21,15 +27,7 @@ jobs:
     steps:
       - name: Echo test 1
         run: |
-          echo "${{ toJSON('{
-            "REMOTE_APP__DOCUFLOW_PLATFORM_DESKTOP": "${{ needs.platform-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_DIAGRAM": "${{ needs.diagram-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_WORKFLOWS": "${{ needs.workflows-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_SETTINGS": "${{ needs.settings-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_HISTORY": "${{ needs.history-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_SIGNING_SESSION": "${{ needs.signing-session-app.outputs.desktop-assets-path || '' }}",
-             "REMOTE_APP__DOCUFLOW_CONTACTS": "${{ needs.contacts-app.outputs.desktop-assets-path || '' }}"
-          }') }}"
+          echo 'test 1'
 
   test-2:
     runs-on: ubuntu-latest
