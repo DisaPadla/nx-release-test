@@ -30,23 +30,12 @@ jobs:
       - name: Echo test 2
         run: echo "test 2"
 
-
-  check:
-    runs-on: ubuntu-latest
-    needs: 
-      - prepare
-      - test-1
-    steps:
-      - name: Echo check
-        run: |
-         echo ${{ needs.test-1.result }}
-
   result:
     runs-on: ubuntu-latest
     needs: 
       - test-1
       - test-2
-    if: always() && needs.prepare.result == 'success' && (needs.*.result == 'skipped' || needs.*.result == 'success')
+    if: always() && !failure() && !cancelled()
     steps:
       - name: Echo result
         run: echo "result"
@@ -58,7 +47,7 @@ jobs:
       - test-1
       - test-2
       - result
-    if: always() && needs.prepare.result == 'success' && (needs.*.result == 'skipped' || needs.*.result == 'success')
+    if: always() && !failure() && !cancelled()
     steps:
       - name: Echo summary
         run: echo "summary"
